@@ -7,6 +7,7 @@ public class SetupUI : MonoBehaviour
 {
     [SerializeField] private Transform player;
 
+    [SerializeField] private GameObject buyMenu;
     [SerializeField] private TextMeshProUGUI buyText;
 
     [SerializeField] private float adjust;
@@ -25,6 +26,10 @@ public class SetupUI : MonoBehaviour
     {
         if(Vector3.Distance(this.transform.position, player.position) <= 3f)
         {
+            if (Input.GetKeyDown(KeyCode.E))
+                ActivateMenu();
+
+
             ActivateObjects();
         }
 
@@ -34,5 +39,10 @@ public class SetupUI : MonoBehaviour
     {
         buyText.gameObject.SetActive(true);
         buyText.rectTransform.localPosition = new Vector3(player.position.x, player.position.y + adjust, player.position.z);
+    }
+
+    void ActivateMenu()
+    {
+        buyMenu.SetActive(true);
     }
 }
