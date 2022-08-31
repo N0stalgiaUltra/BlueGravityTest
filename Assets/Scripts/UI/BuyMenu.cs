@@ -18,10 +18,21 @@ public class BuyMenu : MonoBehaviour
         {
             ItemCard aux = Instantiate(itemCardPrefab, cardTransform);
             aux.SetupCard(items[i]);
+            //buyButton = aux.GetComponent<Button>();
+            //buyButton.onClick.AddListener(BuyItem);
         }
+
+
         //adiciona os itens
         //adiciona o texto
         //seta o botão
     }
 
+    private void BuyItem()
+    {
+        //selecionar item (itens)
+        //clicar no botão de comprar
+        //instanciar cards no inventário
+
+    }
 }

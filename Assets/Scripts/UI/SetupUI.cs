@@ -13,6 +13,8 @@ public class SetupUI : MonoBehaviour
     [SerializeField] private float offsetY;
 
     private ClothesList clothesList;
+    [SerializeField]bool value;
+
     void Start()
     {
         clothesList = GetComponent<ClothesList>();
@@ -29,23 +31,33 @@ public class SetupUI : MonoBehaviour
         if(Vector3.Distance(this.transform.position, player.position) <= 3f)
         {
             if (Input.GetKeyDown(KeyCode.E))
-                ActivateMenu();
+            {
+                value = !value;
+                ActivateMenu(value);
+                ActivateTexts(!value);
+            }
 
 
-            ActivateTexts();
         }
 
     }
 
-    void ActivateTexts()
+    void ActivateTexts(bool value)
     {
-        buyText.gameObject.SetActive(true);
-        buyText.rectTransform.localPosition = new Vector3(player.position.x, player.position.y + offsetY, player.position.z);
+        buyText.gameObject.SetActive(value);
+
+        if(buyText.gameObject.activeSelf)
+            buyText.rectTransform.localPosition = new Vector3(player.position.x, player.position.y + offsetY, player.position.z);
+        
+        
     }
 
-    void ActivateMenu()
+    void ActivateMenu(bool value)
     {
-        buyMenu.gameObject.SetActive(true);
-        buyMenu.SetMenu(clothesList.clothesList, clothesList.clothType.ToString());
+
+        buyMenu.gameObject.SetActive(value);
+        
+        if(buyMenu.gameObject.activeSelf)
+            buyMenu.SetMenu(clothesList.clothesList, clothesList.clothType.ToString());
     }
 }
