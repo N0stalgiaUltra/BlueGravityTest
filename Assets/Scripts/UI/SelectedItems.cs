@@ -11,4 +11,10 @@ public class SelectedItems: MonoBehaviour
     {
         selectedItems = new List<ItemCard>();
     }
+
+    public static void ClearList()
+    {
+        selectedItems.Clear();
+        total = 0;
+    }
 }

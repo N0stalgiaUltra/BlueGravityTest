@@ -28,11 +28,20 @@ public class ItemCard : CardButton
         {
             SelectedItems.selectedItems.Add(this);
             SelectedItems.total += this.price;
-            print($"Itens na lista {SelectedItems.selectedItems.Count}, preço total: {SelectedItems.total}");
+            
         }
         else
         {
-            return;
+            if(SelectedItems.selectedItems.Count > 0 && SelectedItems.selectedItems.Contains(this))
+            {
+                SelectedItems.selectedItems.Remove(this);
+                
+                if (SelectedItems.total > 0)
+                    SelectedItems.total -= this.price;
+                else
+                    SelectedItems.total = 0;
+            }
+            
         }
     }
 }

@@ -30,5 +30,4 @@ public class CardButton : MonoBehaviour
     }
 
 
-    //public bool Clicked { get=> clicked;}
 }

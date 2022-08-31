@@ -7,14 +7,16 @@ using TMPro;
 public class BuyMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private Button buyButton;
     [SerializeField] private ItemCard itemCardPrefab;
     [SerializeField] private Transform cardTransform;
-
-    private List<ItemCard> cardsList = new List<ItemCard>();
+    [SerializeField] private Inventory inventoryRef;
     public void SetMenu(List<ItemData> items, string title)
     {
-        titleText.text = $"{title} + Shop";
+        titleText.text = $"{title} Shop";
+        priceText.text = $"Total: {SelectedItems.total}";
+        buyButton.onClick.AddListener(BuyItem);
 
         for (int i = 0; i < items.Count; i++)
         {
@@ -23,27 +25,25 @@ public class BuyMenu : MonoBehaviour
             //buyButton = aux.GetComponent<Button>();
             //buyButton.onClick.AddListener(BuyItem);
         }
-
-
-        //adiciona os itens
-        //adiciona o texto
-        //seta o botão
     }
-
+    private void Update()
+    {
+        priceText.text = $"Total: {SelectedItems.total}";
+    }
     private void BuyItem()
     {
-        //adicionar itens a lista de comprados
-
-
-
-        //ação de compra (btão)
-        if(Input.GetKeyDown(KeyCode.Space) && cardsList.Count != 0)
+        if (SelectedItems.selectedItems.Count != 0)
         {
-            
+            //print($"Itens na lista {SelectedItems.selectedItems.Count}, preço total: {SelectedItems.total}");
+            for (int i = 0; i < SelectedItems.selectedItems.Count; i++)
+                inventoryRef.AddToInventory(SelectedItems.selectedItems[i]);
+
+            SelectedItems.ClearList();
         }
-        //selecionar item (itens)
-        //clicar no botão de comprar
-        //instanciar cards no inventário
+        else
+            return;
 
     }
+
+    
 }
