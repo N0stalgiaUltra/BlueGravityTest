@@ -8,11 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     float velocity = 5f;
     float movx, movy;
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

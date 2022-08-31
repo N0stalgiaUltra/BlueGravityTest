@@ -7,13 +7,15 @@ public class SetupUI : MonoBehaviour
 {
     [SerializeField] private Transform player;
 
-    [SerializeField] private GameObject buyMenu;
+    [SerializeField] private BuyMenu buyMenu;
     [SerializeField] private TextMeshProUGUI buyText;
 
-    [SerializeField] private float adjust;
+    [SerializeField] private float offsetY;
+
+    private ClothesList clothesList;
     void Start()
     {
-        
+        clothesList = GetComponent<ClothesList>();
     }
 
     // Update is called once per frame
@@ -30,19 +32,20 @@ public class SetupUI : MonoBehaviour
                 ActivateMenu();
 
 
-            ActivateObjects();
+            ActivateTexts();
         }
 
     }
 
-    void ActivateObjects()
+    void ActivateTexts()
     {
         buyText.gameObject.SetActive(true);
-        buyText.rectTransform.localPosition = new Vector3(player.position.x, player.position.y + adjust, player.position.z);
+        buyText.rectTransform.localPosition = new Vector3(player.position.x, player.position.y + offsetY, player.position.z);
     }
 
     void ActivateMenu()
     {
-        buyMenu.SetActive(true);
+        buyMenu.gameObject.SetActive(true);
+        buyMenu.SetMenu(clothesList.clothesList, clothesList.clothType.ToString());
     }
 }
