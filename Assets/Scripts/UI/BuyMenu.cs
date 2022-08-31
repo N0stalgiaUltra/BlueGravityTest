@@ -10,6 +10,8 @@ public class BuyMenu : MonoBehaviour
     [SerializeField] private Button buyButton;
     [SerializeField] private ItemCard itemCardPrefab;
     [SerializeField] private Transform cardTransform;
+
+    private List<ItemCard> cardsList = new List<ItemCard>();
     public void SetMenu(List<ItemData> items, string title)
     {
         titleText.text = $"{title} + Shop";
@@ -30,6 +32,15 @@ public class BuyMenu : MonoBehaviour
 
     private void BuyItem()
     {
+        //adicionar itens a lista de comprados
+
+
+
+        //ação de compra (btão)
+        if(Input.GetKeyDown(KeyCode.Space) && cardsList.Count != 0)
+        {
+            
+        }
         //selecionar item (itens)
         //clicar no botão de comprar
         //instanciar cards no inventário
