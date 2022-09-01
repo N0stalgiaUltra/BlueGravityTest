@@ -7,7 +7,7 @@ public class StaticObjects: MonoBehaviour
     public static List<ItemCard> selectedItems;
     public static List<ItemCard> inventoryItems;
     public static int total = 0;
-
+    public static ItemCard clickedItem;
     private void Start()
     {
         selectedItems = new List<ItemCard>();

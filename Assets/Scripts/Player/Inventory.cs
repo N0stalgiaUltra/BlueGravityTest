@@ -44,6 +44,6 @@ public class Inventory : MonoBehaviour
     public void ChangeCloth()
     {
         //recuperar o item e indice dele
-        //playerClothes.ChangeCloth(StaticObjects.inventoryItems[0].ItemSprite, items[0].ClothID);
+        playerClothes.ChangeCloth(StaticObjects.clickedItem.ItemSprite, StaticObjects.clickedItem.ClothID);
     }
 }

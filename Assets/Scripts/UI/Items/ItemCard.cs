@@ -49,6 +49,10 @@ public class ItemCard : CardButton
         }
         else
         {
+            if (clicked)
+                StaticObjects.clickedItem = this;
+            else
+                StaticObjects.clickedItem = null;
             //aqui ele reconhece o clique
             //precisaria tirar um objeto daqui 
             //print(StaticObjects.inventoryItems);
