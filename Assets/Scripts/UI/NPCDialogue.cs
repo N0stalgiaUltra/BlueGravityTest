@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Dialogue : MonoBehaviour
+public class NPCDialogue : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private string[] lines;
@@ -13,8 +13,8 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.SetActive(false);
         dialogueText.text = string.Empty;
-        StartDialogue();
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class Dialogue : MonoBehaviour
         }
         
     }
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
         StartCoroutine(TypeLineSpeed());
