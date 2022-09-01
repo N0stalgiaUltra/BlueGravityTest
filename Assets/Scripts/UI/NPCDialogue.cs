@@ -59,4 +59,11 @@ public class NPCDialogue : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
+    public void EndDialogue()
+    {
+        this.gameObject.SetActive(false);
+        StopAllCoroutines();
+        dialogueText.text = string.Empty;    }
+
 }

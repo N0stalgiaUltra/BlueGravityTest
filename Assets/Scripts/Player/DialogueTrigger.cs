@@ -10,23 +10,24 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            CheckDistance();
+        
+        CheckDistance();
     }
 
     void CheckDistance()
     {
         if (Vector3.Distance(this.gameObject.transform.position, NPC.transform.position) < 2.5f)
         {
-            if (!dialogueNPC.gameObject.activeSelf)
+            if (Input.GetKeyDown(KeyCode.E) && !dialogueNPC.gameObject.activeSelf)
             {
                 dialogueNPC.gameObject.SetActive(true);
                 dialogueNPC.StartDialogue();
             }
-            else
-                return;
-            
+
         }
+        else
+            dialogueNPC.EndDialogue();
+
     }
 
 }
