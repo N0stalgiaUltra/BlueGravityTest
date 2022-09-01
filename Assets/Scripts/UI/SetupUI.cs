@@ -58,6 +58,6 @@ public class SetupUI : MonoBehaviour
         buyMenu.gameObject.SetActive(value);
         
         if(buyMenu.gameObject.activeSelf)
-            buyMenu.SetMenu(clothesList.clothesList, clothesList.clothType.ToString());
+            buyMenu.SetMenu(clothesList.clothesList, clothesList.sectionName);
     }
 }

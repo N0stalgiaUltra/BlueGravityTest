@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class ClothesList : MonoBehaviour
 {
-    public enum ClothType{
-        HOOD,
-        PANTS,
-        BELT,
-        TORSO
-    }
-    public ClothType clothType;
+    public string sectionName;
     public List<ItemData> clothesList = new List<ItemData>();
 }

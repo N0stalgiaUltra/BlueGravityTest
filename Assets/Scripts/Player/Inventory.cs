@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     //abre inventario
     //coloca cards comprados
     //troca roupa do player 
-    public List<ItemCard> items = new List<ItemCard>();
+    //
+    //[HideInInspector] public List<ItemCard> items = new List<ItemCard>();
     [SerializeField] private GameObject inventoryObj;
     [SerializeField] private Transform inventoryTransform;
+
+    [SerializeField] private Button changeClothBtn;
+    [SerializeField] private PlayerClothes playerClothes;
+
+    [SerializeField] private int index = 0; //inventory index
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        changeClothBtn.onClick.AddListener(ChangeCloth);
     }
 
     // Update is called once per frame
@@ -28,6 +35,15 @@ public class Inventory : MonoBehaviour
     public void AddToInventory(ItemCard obj)
     {
         ItemCard aux = Instantiate(obj, inventoryTransform);
-        items.Add(aux);
+        aux.SetupCardToInventory();
+        StaticObjects.inventoryItems.Add(aux);
+
+        index++;
+    }
+
+    public void ChangeCloth()
+    {
+        //recuperar o item e indice dele
+        //playerClothes.ChangeCloth(StaticObjects.inventoryItems[0].ItemSprite, items[0].ClothID);
     }
 }

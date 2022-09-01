@@ -15,30 +15,27 @@ public class BuyMenu : MonoBehaviour
     public void SetMenu(List<ItemData> items, string title)
     {
         titleText.text = $"{title} Shop";
-        priceText.text = $"Total: {SelectedItems.total}";
+        priceText.text = $"Total: {StaticObjects.total}";
         buyButton.onClick.AddListener(BuyItem);
 
         for (int i = 0; i < items.Count; i++)
         {
             ItemCard aux = Instantiate(itemCardPrefab, cardTransform);
             aux.SetupCard(items[i]);
-            //buyButton = aux.GetComponent<Button>();
-            //buyButton.onClick.AddListener(BuyItem);
         }
     }
     private void Update()
     {
-        priceText.text = $"Total: {SelectedItems.total}";
+        priceText.text = $"Total: {StaticObjects.total}";
     }
     private void BuyItem()
     {
-        if (SelectedItems.selectedItems.Count != 0)
+        if (StaticObjects.selectedItems.Count != 0)
         {
-            //print($"Itens na lista {SelectedItems.selectedItems.Count}, preço total: {SelectedItems.total}");
-            for (int i = 0; i < SelectedItems.selectedItems.Count; i++)
-                inventoryRef.AddToInventory(SelectedItems.selectedItems[i]);
+            for (int i = 0; i < StaticObjects.selectedItems.Count; i++)
+                inventoryRef.AddToInventory(StaticObjects.selectedItems[i]);
 
-            SelectedItems.ClearList();
+            StaticObjects.ClearList(StaticObjects.selectedItems);
         }
         else
             return;

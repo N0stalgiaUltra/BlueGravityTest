@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 
 public class CardButton : MonoBehaviour
 {
-    protected Button cardButton;
-    protected bool clicked;
+    [SerializeField] protected Button cardButton;
+    [SerializeField] protected bool clicked;
     private Image buttonImage;
     private Color unselectedColor, selectedColor;
     public void Setup()

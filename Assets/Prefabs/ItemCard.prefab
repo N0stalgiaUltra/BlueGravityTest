@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priceText: {fileID: 298808101136926847}
   itemSprite: {fileID: 298808102312812877}
-  cardButton: {fileID: 80918911180219653}
+  storeSprite: {fileID: 298808102914289153}
 --- !u!114 &80918911180219653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,9 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dada47cb64d747141a62effdfc51d987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardButton: {fileID: -800936815966598921}
-  clicked: 0
-  buttonImage: {fileID: 298808102507392317}
 --- !u!1 &298808102914289153
 GameObject:
   m_ObjectHideFlags: 0
