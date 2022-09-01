@@ -13,7 +13,7 @@ public class SetupUI : MonoBehaviour
     [SerializeField] private float offsetY;
 
     private ClothesList clothesList;
-    [SerializeField]bool value;
+    [SerializeField] bool value;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public class SetupUI : MonoBehaviour
             {
                 value = !value;
                 ActivateMenu(value);
-                ActivateTexts(!value);
+                //ActivateTexts(!value);
             }
 
 
@@ -54,10 +54,10 @@ public class SetupUI : MonoBehaviour
 
     void ActivateMenu(bool value)
     {
+        if (!buyMenu.gameObject.activeSelf)
+            buyMenu.OpenMenu(value, clothesList.clothesList, clothesList.sectionName);
+        else
+            buyMenu.CloseMenu(value);
 
-        buyMenu.gameObject.SetActive(value);
-        
-        if(buyMenu.gameObject.activeSelf)
-            buyMenu.SetMenu(clothesList.clothesList, clothesList.sectionName);
     }
 }

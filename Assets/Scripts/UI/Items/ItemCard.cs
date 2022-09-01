@@ -10,7 +10,7 @@ public class ItemCard : CardButton
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private Image itemSprite;
     [SerializeField] private GameObject storeSprite;
-    private int clothTypeId;
+    [SerializeField] private int clothTypeId;
     int price;
 
     [SerializeField] private bool isOnInventory;
@@ -50,7 +50,9 @@ public class ItemCard : CardButton
         else
         {
             if (clicked)
+            {
                 StaticObjects.clickedItem = this;
+            }
             else
                 StaticObjects.clickedItem = null;
             //aqui ele reconhece o clique

@@ -12,6 +12,8 @@ public class BuyMenu : MonoBehaviour
     [SerializeField] private ItemCard itemCardPrefab;
     [SerializeField] private Transform cardTransform;
     [SerializeField] private Inventory inventoryRef;
+
+    private List<ItemCard> shopList = new List<ItemCard>();
     public void SetMenu(List<ItemData> items, string title)
     {
         titleText.text = $"{title} Shop";
@@ -22,6 +24,7 @@ public class BuyMenu : MonoBehaviour
         {
             ItemCard aux = Instantiate(itemCardPrefab, cardTransform);
             aux.SetupCard(items[i]);
+            shopList.Add(aux);
         }
     }
     private void Update()
@@ -40,6 +43,36 @@ public class BuyMenu : MonoBehaviour
         else
             return;
 
+    }
+    public void OpenMenu(bool value, List<ItemData> items, string title)
+    {
+        if (value)
+        {
+            this.gameObject.SetActive(value);
+            SetMenu(items, title);
+        }
+        else
+            return;
+    }
+    public void CloseMenu(bool value)
+    {
+        if (!value)
+        {
+            ClearMenu();
+            this.gameObject.SetActive(value);
+        }
+        else
+            return;
+    }
+
+    public void ClearMenu()
+    {
+        for (int i = 0; i < shopList.Count; i++)
+        {
+            shopList[i].gameObject.SetActive(false);
+        }
+
+        shopList.Clear();
     }
 
     

@@ -22,12 +22,12 @@ public class PlayerClothes : MonoBehaviour
             
             //Belt
             case 2:
-                print("Changed the Belt");
+                playerClothes[type].sprite = newCloth;
                 break;
             
             //Torso
             case 3:
-                print("Changed the Torso");
+                playerClothes[type].sprite = newCloth;
                 break;
             
             //Gloves
