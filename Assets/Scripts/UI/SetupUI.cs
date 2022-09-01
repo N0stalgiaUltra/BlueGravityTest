@@ -8,8 +8,7 @@ public class SetupUI : MonoBehaviour
     [SerializeField] private Transform player;
 
     [SerializeField] private BuyMenu buyMenu;
-    [SerializeField] private TextMeshProUGUI buyText;
-
+    [SerializeField] private GuidingText guidingText;
     [SerializeField] private float offsetY;
 
     private ClothesList clothesList;
@@ -34,7 +33,6 @@ public class SetupUI : MonoBehaviour
             {
                 value = !value;
                 ActivateMenu(value);
-                //ActivateTexts(!value);
             }
 
 
@@ -42,15 +40,10 @@ public class SetupUI : MonoBehaviour
 
     }
 
-    void ActivateTexts(bool value)
-    {
-        buyText.gameObject.SetActive(value);
-
-        if(buyText.gameObject.activeSelf)
-            buyText.rectTransform.localPosition = new Vector3(player.position.x, player.position.y + offsetY, player.position.z);
+    //void ActivateTexts(bool value) => guidingText.OpenText(value);
+    
         
-        
-    }
+    
 
     void ActivateMenu(bool value)
     {
