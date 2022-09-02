@@ -15,8 +15,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Button changeClothBtn;
     [SerializeField] private Button sellItemBtn;
     [SerializeField] private PlayerClothes playerClothes;
+    [SerializeField] private PlayerWallet playerCoins;
 
-    [SerializeField] private int index = 0; //inventory index
     private bool value;
     [SerializeField] private int userCoins = 0;
     // Start is called before the first frame update
@@ -48,21 +48,20 @@ public class Inventory : MonoBehaviour
         ItemCard aux = Instantiate(obj, inventoryTransform);
         aux.SetupCardToInventory();
         StaticObjects.inventoryItems.Add(aux);
-
-        index++;
     }
 
     public void ChangeCloth()
     {
         //recuperar o item e indice dele
-        playerClothes.ChangeCloth(StaticObjects.clickedItem.ItemSprite, StaticObjects.clickedItem.ClothID);
+        if(StaticObjects.clickedItem != null)
+            playerClothes.ChangeCloth(StaticObjects.clickedItem.ItemSprite, StaticObjects.clickedItem.ClothID);
     }
 
     public void SellItem()
     {
         if (!playerClothes.IsPlayerWearing(StaticObjects.clickedItem.ItemSprite)) 
         {
-            userCoins += StaticObjects.clickedItem.Price;
+            playerCoins.CoinsManager(StaticObjects.clickedItem.Price, true);
             StaticObjects.RemoveObject(StaticObjects.inventoryItems, StaticObjects.clickedItem);
         }
         else

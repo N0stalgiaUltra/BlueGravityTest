@@ -12,6 +12,7 @@ public class BuyMenu : MonoBehaviour
     [SerializeField] private ItemCard itemCardPrefab;
     [SerializeField] private Transform cardTransform;
     [SerializeField] private Inventory inventoryRef;
+    [SerializeField] private PlayerWallet playerCoins;
 
     private List<ItemCard> shopList = new List<ItemCard>();
     public void SetMenu(List<ItemData> items, string title)
@@ -33,11 +34,12 @@ public class BuyMenu : MonoBehaviour
     }
     private void BuyItem()
     {
-        if (StaticObjects.selectedItems.Count != 0)
+        if (StaticObjects.selectedItems.Count != 0 && playerCoins.Coins >= StaticObjects.total)
         {
             for (int i = 0; i < StaticObjects.selectedItems.Count; i++)
                 inventoryRef.AddToInventory(StaticObjects.selectedItems[i]);
 
+            playerCoins.CoinsManager(StaticObjects.total, false);
             StaticObjects.ClearList(StaticObjects.selectedItems);
         }
         else
