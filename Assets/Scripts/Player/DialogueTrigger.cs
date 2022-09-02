@@ -7,6 +7,7 @@ public class DialogueTrigger : MonoBehaviour
 
     [SerializeField] private NPCDialogue dialogueNPC;
     [SerializeField] private GameObject NPC;
+    public float distance;
 
     void Update()
     {
@@ -16,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void CheckDistance()
     {
-        if (Vector3.Distance(this.gameObject.transform.position, NPC.transform.position) < 2.5f)
+        if (Vector3.Distance(this.gameObject.transform.position, NPC.transform.position) < distance)
         {
             if (Input.GetKeyDown(KeyCode.E) && !dialogueNPC.gameObject.activeSelf)
             {

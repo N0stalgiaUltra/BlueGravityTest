@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerClothes : MonoBehaviour
 {
     //0 - Hood, 1- Belt, 2- Torso
-    [SerializeField] List<SpriteRenderer> playerClothes = new List<SpriteRenderer>(5);
+    [SerializeField] List<SpriteRenderer> playerClothes = new List<SpriteRenderer>(3);
 
     public void ChangeCloth(Sprite newCloth, int type)
     {
@@ -15,7 +15,6 @@ public class PlayerClothes : MonoBehaviour
             case 0:
                 playerClothes[type].sprite = newCloth;
                 break;
-            
             //Belt
             case 1:
                 playerClothes[type].sprite = newCloth;

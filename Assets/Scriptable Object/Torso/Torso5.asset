@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3bb34f829c83b4b8de242be19bf894, type: 3}
   m_Name: Torso5
   m_EditorClassIdentifier: 
-  clothType: 3
+  clothType: 2
   sprite: {fileID: 21300000, guid: fff248787aa9dc44d819b77a6686c0af, type: 3}
   price: 250

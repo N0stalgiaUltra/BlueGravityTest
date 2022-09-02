@@ -18,8 +18,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private PlayerWallet playerCoins;
 
     private bool value;
-    [SerializeField] private int userCoins = 0;
-    // Start is called before the first frame update
     void Start()
     {
         changeClothBtn.onClick.AddListener(ChangeCloth);
@@ -27,7 +25,6 @@ public class Inventory : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -52,7 +49,6 @@ public class Inventory : MonoBehaviour
 
     public void ChangeCloth()
     {
-        //recuperar o item e indice dele
         if(StaticObjects.clickedItem != null)
             playerClothes.ChangeCloth(StaticObjects.clickedItem.ItemSprite, StaticObjects.clickedItem.ClothID);
     }

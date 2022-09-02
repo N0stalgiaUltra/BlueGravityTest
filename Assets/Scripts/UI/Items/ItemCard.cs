@@ -63,7 +63,6 @@ public class ItemCard : CardButton
     {
         storeSprite.SetActive(false);
         isOnInventory = true;
-        print(price);
         cardButton.onClick.AddListener(SelectedCards);
     }
 
