@@ -8,7 +8,6 @@ public class SetupUI : MonoBehaviour
     [SerializeField] private Transform player;
 
     [SerializeField] private BuyMenu buyMenu;
-    [SerializeField] private GuidingText guidingText;
     [SerializeField] private float offsetY;
 
     private ClothesList clothesList;
@@ -27,24 +26,17 @@ public class SetupUI : MonoBehaviour
 
     void CheckDistance()
     {
-        if(Vector3.Distance(this.transform.position, player.position) <= 3f)
+        if (Vector3.Distance(this.transform.position, player.position) <= 3f)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 value = !value;
                 ActivateMenu(value);
             }
-
-
         }
 
-    }
-
-    //void ActivateTexts(bool value) => guidingText.OpenText(value);
-    
+    }    
         
-    
-
     void ActivateMenu(bool value)
     {
         if (!buyMenu.gameObject.activeSelf)

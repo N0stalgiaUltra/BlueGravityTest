@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerClothes : MonoBehaviour
 {
-    //0 - Hood, 1- Pants, 2- Belt, 3- Torso, 4- Gloves
+    //0 - Hood, 1- Belt, 2- Torso
     [SerializeField] List<SpriteRenderer> playerClothes = new List<SpriteRenderer>(5);
 
     public void ChangeCloth(Sprite newCloth, int type)
@@ -16,24 +16,33 @@ public class PlayerClothes : MonoBehaviour
                 playerClothes[type].sprite = newCloth;
                 break;
             
-            //Pants
-            case 1: print("Changed the Pants");
-                break;
-            
             //Belt
-            case 2:
+            case 1:
                 playerClothes[type].sprite = newCloth;
                 break;
             
             //Torso
-            case 3:
+            case 2:
                 playerClothes[type].sprite = newCloth;
                 break;
-            
-            //Gloves
-            case 4:
-                print("Changed the Gloves");
-                break;
+
         }
+    }
+
+    public bool IsPlayerWearing(Sprite aux)
+    {
+        if (aux == null)
+            return false;
+        
+        else
+        {
+            for (int i = 0; i < playerClothes.Count; i++)
+            {
+                if (playerClothes[i].sprite.Equals(aux))
+                    return true;
+            }
+
+            return false;
+        }        
     }
 }

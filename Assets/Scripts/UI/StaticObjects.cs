@@ -19,4 +19,11 @@ public class StaticObjects: MonoBehaviour
         aux.Clear();
         total = 0;
     }
+
+    public static void RemoveObject(List<ItemCard> list, ItemCard item)
+    {
+        item.gameObject.SetActive(false);  
+        list.Remove(item);
+        //item = null;
+    }
 }

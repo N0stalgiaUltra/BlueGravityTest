@@ -11,7 +11,7 @@ public class ItemCard : CardButton
     [SerializeField] private Image itemSprite;
     [SerializeField] private GameObject storeSprite;
     [SerializeField] private int clothTypeId;
-    int price;
+    [SerializeField] int price;
 
     [SerializeField] private bool isOnInventory;
     public void SetupCard(ItemData data)
@@ -67,9 +67,11 @@ public class ItemCard : CardButton
     {
         storeSprite.SetActive(false);
         isOnInventory = true;
+        print(price);
         cardButton.onClick.AddListener(SelectedCards);
     }
 
     public int ClothID {get => this.clothTypeId; }
+    public int Price { get => this.price; }
     public Sprite ItemSprite { get => this.itemSprite.sprite; }
 }

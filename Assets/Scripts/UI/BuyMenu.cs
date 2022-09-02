@@ -67,10 +67,12 @@ public class BuyMenu : MonoBehaviour
 
     public void ClearMenu()
     {
-        for (int i = 0; i < shopList.Count; i++)
-        {
-            shopList[i].gameObject.SetActive(false);
-        }
+        if(shopList.Count > 0)
+            for (int i = 0; i < shopList.Count; i++)
+                shopList[i].gameObject.SetActive(false);
+            
+        
+        
 
         shopList.Clear();
     }

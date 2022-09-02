@@ -8,10 +8,8 @@ public class ItemData : ScriptableObject
     public enum ClothType
     {
         HOOD,
-        PANTS,
         BELT,
-        TORSO,
-        GLOVES
+        TORSO
     }
     public ClothType clothType;
     public Sprite sprite;
